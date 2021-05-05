@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle"  xmlns:dc="http://purl.org/dc/elements/1.1/">
+   <channel>
+      <title>kbang-client</title>
+      <link>http://www.spectregadget.net/kbang/appcast.xml</link>
+      <description>First autoupdater!</description>
+      <language>en</language>
+         <item>
+            <title>Version 0.16 (1 bug fixed)</title>
+						<sparkle:releaseNotesLink>
+						</sparkle:releaseNotesLink>
+            <pubDate>Wed, 24 Nov 2009 23:00:00 -0600</pubDate>
+            <enclosure url="http://www.spectregadget.net/kbang/kbang-client.app.zip" sparkle:version="0.16" length="1623481" type="application/octet-stream" sparkle:dsaSignature="BAFJW4B6B1K1JyW30nbkBwainOzrN6EQuAh" />
+         </item>
+   </channel>
+</rss>
