@@ -7,7 +7,7 @@
 
 #include <QDebug>
 #include <QTimer>
-#include <QApplication>
+// #include <QApplication>
 #include <cstdlib>
 
 int VoidAI::sm_playerCounter = 0;

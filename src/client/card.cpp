@@ -19,6 +19,7 @@
  ***************************************************************************/
 
 #include <QtDebug>
+#include <QPainterPath>
 #include "card.h"
 #include "config.h"
 

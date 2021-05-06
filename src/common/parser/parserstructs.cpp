@@ -50,7 +50,7 @@ QString ActionUseAbilityData::elementName("use-ability");
 
 void readAvatar(XmlNode* node, QImage& avatar)
 {
-    QByteArray bytes = QByteArray::fromBase64(node->getFirstChild()->text().toAscii());
+    QByteArray bytes = QByteArray::fromBase64(node->getFirstChild()->text().toLocal8Bit());
     if (!avatar.loadFromData(bytes)) {
         qWarning("Cannot load image from network.");
     }

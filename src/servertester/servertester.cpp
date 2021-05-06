@@ -202,7 +202,7 @@ void ServerTester::sendClicked()
     Q_ASSERT(m_connected);
     mp_textEditViewXml->setTextColor(Qt::red);
     mp_textEditViewXml->append(mp_textEditInputXml->toPlainText());
-    m_tcpSocket.write(mp_textEditInputXml->toPlainText().toAscii());
+    m_tcpSocket.write(mp_textEditInputXml->toPlainText().toLocal8Bit());
     mp_textEditInputXml->clear();
 }
 

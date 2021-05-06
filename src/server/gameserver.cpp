@@ -120,13 +120,13 @@ bool GameServer::listen()
 {
     if (!mp_tcpServer->isListening() && !mp_tcpServer->listen())
     {
-        qCritical("ERROR: Unable to listen on %s:%d", mp_tcpServer->hostAddressString().toAscii().data(),
+        qCritical("ERROR: Unable to listen on %s:%d", mp_tcpServer->hostAddressString(),
                   mp_tcpServer->port());
         return 0;
     }
     else
     {
-        qWarning("Listening on %s:%d", mp_tcpServer->hostAddressString().toAscii().data(), mp_tcpServer->port());
+        qWarning("Listening on %s:%d", mp_tcpServer->hostAddressString(), mp_tcpServer->port());
     }
     return 1;
 }

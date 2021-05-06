@@ -7,7 +7,9 @@ CONFIG += qt \
     release \
     warn_on
 CONFIG += x86
-QT += network \
+QT += widgets \
+    multimedia \
+    network \
     xml \
     script
 RESOURCES += src/client/resources/client.qrc

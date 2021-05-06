@@ -26,7 +26,7 @@
 #include <QPaintEvent>
 #include <QClipboard>
 #include <QtNetwork>
-#include <QHttp>
+#include <QNetworkAccessManager>
 #include <QSound>
 #include <QScriptEngine>
 #include <QScriptValue>
@@ -120,7 +120,7 @@ ChatWidget::~ChatWidget()
 void ChatWidget::paintEvent(QPaintEvent* event)
 {
     QPainter painter(this);
-    painter.fillRect(event->rect().intersect(contentsRect()), QColor(0, 0, 0, 32));
+    painter.fillRect(event->rect().intersected(contentsRect()), QColor(0, 0, 0, 32));
 }
 
 void ChatWidget::clear()
@@ -133,7 +133,7 @@ void ChatWidget::sendMessage()
 {
     const QString& message = mp_messageBox->text();
     mp_messageBox->clear();
-    emit outgoingMessage(Qt::escape(message));
+    emit outgoingMessage(message.toHtmlEscaped());
 }
 
 // Take incoming messages, create a link to Google Translate, and also send the translation request
@@ -144,11 +144,11 @@ void ChatWidget::incomingMessage(int, const QString& senderName, const QString& 
 
     // Make all the text a clickable link to translate.google.com, from = auto
     mp_chatView->append(QString("<b>%1:</b> %2")
-                        .arg(Qt::escape(removeHTMLtags(senderName)))
+                        .arg(removeHTMLtags(senderName).toHtmlEscaped())
                         .arg(QString(chatHTML)
                              .arg(QString(urlTranslateFriendly)
                                   .arg(mp_destinationLanguage)
-                                  .arg(QString(Qt::escape(message)).replace(" ", "%20")))
+                                  .arg(message.toHtmlEscaped().replace(" ", "%20")))
                              .arg(message)));
 
     // Send the message off to Google Translate and see if we can convert it

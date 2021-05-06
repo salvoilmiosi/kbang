@@ -69,9 +69,6 @@ font: oblique 7pt "DejaVu Sans";</string>
          <property name="text" >
           <string/>
          </property>
-         <property name="textFormat" >
-          <enum>Qt::LogText</enum>
-         </property>
          <property name="alignment" >
           <set>Qt::AlignCenter</set>
          </property>
