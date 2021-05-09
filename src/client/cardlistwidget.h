@@ -20,8 +20,8 @@
 #ifndef CLIENTCARDLISTWIDGET_H
 #define CLIENTCARDLISTWIDGET_H
 
-#include <cardpocket.h>
-#include <cardwidget.h>
+#include "cardpocket.h"
+#include "cardwidget.h"
 
 #include <QList>
 
