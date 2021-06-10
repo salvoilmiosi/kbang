@@ -90,7 +90,12 @@ src/client/aboutdialog.ui
 )
 
 qt5_add_resources(client_SRCS src/client/resources/client.qrc)
-add_executable(kbang_client ${client_SRCS} ${client_UI} ${client_RES})
+set(kbang_client_all_sources ${client_SRCS} ${client_UI} ${client_RES})
+if(WIN32)
+    add_executable(kbang_client WIN32 ${kbang_client_all_sources})
+else()
+    add_executable(kbang_client ${kbang_client_all_sources})
+endif()
 target_link_libraries(kbang_client kbang_common Qt5::Widgets Qt5::Multimedia Qt5::Network Qt5::Xml Qt5::Script)
 target_include_directories(kbang_client PRIVATE src/client)
 
