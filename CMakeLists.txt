@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.0.0)
 project(kbang VERSION 0.1.0)
 
 set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_INSTALL_PREFIX ${CMAKE_SOURCE_DIR}/out)
 
 find_package(Qt5Widgets REQUIRED)
 find_package(Qt5Xml REQUIRED)
@@ -99,6 +100,9 @@ endif()
 target_link_libraries(kbang_client kbang_common Qt5::Widgets Qt5::Multimedia Qt5::Network Qt5::Xml Qt5::Script)
 target_include_directories(kbang_client PRIVATE src/client)
 
+install(TARGETS kbang_client)
+install(DIRECTORY ${CMAKE_SOURCE_DIR}/data DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
+
 set(server_SRCS
 src/server/main.cpp
 src/server/player.cpp
@@ -158,3 +162,5 @@ src/server/characterluckyduke.cpp
 add_executable(kbang_server ${server_SRCS})
 target_link_libraries(kbang_server kbang_common Qt5::Network Qt5::Xml)
 target_include_directories(kbang_server PRIVATE src/server)
+
+install(TARGETS kbang_server)
